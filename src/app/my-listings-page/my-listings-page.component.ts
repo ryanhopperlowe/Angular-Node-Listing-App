@@ -16,7 +16,7 @@ export class MyListingsPageComponent {
   ) {}
 
   ngOnInit() {
-    this.listingService.getUserListings('12345')
+    this.listingService.getUserListings()
       .subscribe((listings) => this.listings = listings)
   }
 
