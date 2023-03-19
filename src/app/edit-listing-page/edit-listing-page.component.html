@@ -1,10 +1,15 @@
-<div class="content-box">
-  <h2>Edit Listing</h2>
-  <app-listing-data-form
-    buttonText="Save Changes"
-    (onSubmit)="onSubmit()"
-    [currentName]="listing.name"
-    [currentDescription]="listing.description"
-    [currentPrice]="listing.price.toString()"
-  ></app-listing-data-form>
+<div *ngIf="!!listing">
+  <div class="content-box">
+    <h2>Edit Listing</h2>
+    <app-listing-data-form
+      buttonText="Save Changes"
+      (onSubmit)="onSubmit($event)"
+      [currentName]="listing.name"
+      [currentDescription]="listing.description"
+      [currentPrice]="listing.price.toString()"
+    ></app-listing-data-form>
+  </div>
+</div>
+<div *ngIf="!listing">
+  <h3>Loading...</h3>
 </div>

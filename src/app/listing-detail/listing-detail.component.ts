@@ -9,7 +9,6 @@ import { Listing } from '../types';
   styleUrls: ['./listing-detail.component.scss']
 })
 export class ListingDetailComponent {
-  isLoading = true;
   listing: Listing | null = null;
 
   constructor(
@@ -20,10 +19,7 @@ export class ListingDetailComponent {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')!;
     this.listingService.getListingById(id)
-      .subscribe((listing) => {
-        this.listing = listing
-        this.isLoading = false;
-      });
+      .subscribe((listing) => this.listing = listing);
 
     this.listingService.addViewToListing(id)
       .subscribe(() => console.log('views updated!'))

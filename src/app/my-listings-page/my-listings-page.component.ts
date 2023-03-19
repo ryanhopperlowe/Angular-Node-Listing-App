@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { fakeMyListings } from '../fake-data';
+import { ListingsService } from '../listings.service';
 import { Listing } from '../types';
 
 @Component({
@@ -8,13 +9,23 @@ import { Listing } from '../types';
   styleUrls: ['./my-listings-page.component.scss']
 })
 export class MyListingsPageComponent {
-  listings: Listing[] = [];
+  listings?: Listing[];
+
+  constructor(
+    private listingService: ListingsService
+  ) {}
 
   ngOnInit() {
-    this.listings = fakeMyListings;
+    this.listingService.getUserListings('12345')
+      .subscribe((listings) => this.listings = listings)
   }
 
   onDeleteClick(listingId: string) {
-    alert(`Deleting your listing with id ${listingId}`);
+    // this method will not be available when listings are not loaded
+    // can assume listings is populated
+    this.listingService.deleteListing(listingId)
+      .subscribe(() => {
+        this.listings = this.listings!.filter(({ id }) => id !== listingId)
+      });
   }
 }
