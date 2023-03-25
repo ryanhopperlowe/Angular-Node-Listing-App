@@ -17,7 +17,8 @@ const httpOptions = {
 const httpOptionsWithAuthToken = (token: string) => ({
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'AuthToken': token
+    'AuthToken': token,
+    'Authorization': token
   })
 })
 
