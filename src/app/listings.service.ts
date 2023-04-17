@@ -8,7 +8,7 @@ interface HttpOptions {
   headers: HttpHeaders;
 }
 
-const httpOptions = {
+const httpOptions: HttpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
