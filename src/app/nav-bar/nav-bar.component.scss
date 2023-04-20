@@ -1,0 +1,27 @@
+
+.top-bar {
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+
+  .container {
+    display: flex;
+    align-items: flex-end;
+    padding: 8px;
+    gap: 8px;
+
+    .button {
+      background-color: black;
+      border: 2px solid black;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      padding: 8px;
+
+      &:hover {
+        background-color: #DDD;
+        color: black;
+      }
+    }
+  }
+}

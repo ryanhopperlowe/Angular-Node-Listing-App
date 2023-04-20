@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { ListingDataFormComponent } from './listing-data-form/listing-data-form.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { environment } from 'src/environments/environment';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { AuthButtonComponent } from './auth-button/auth-button.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { environment } from 'src/environments/environment';
     NewListingPageComponent,
     EditListingPageComponent,
     ListingDataFormComponent,
-    NavBarComponent
+    NavBarComponent,
+    ProfilePageComponent,
+    AuthButtonComponent
   ],
   imports: [
     BrowserModule,

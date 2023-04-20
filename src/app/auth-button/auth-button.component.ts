@@ -1,24 +1,19 @@
-import { ProfileService } from './profile.service';
 import { Component } from '@angular/core';
+import { ProfileService } from '../profile.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-auth-button',
+  templateUrl: './auth-button.component.html',
+  styleUrls: ['./auth-button.component.scss']
 })
-export class AppComponent {
-  title = 'buy-and-sell';
+export class AuthButtonComponent {
 
   constructor(
     public auth: AngularFireAuth,
     private profileService: ProfileService
   ) { }
-
-  ngOnInit() {
-    this.profileService.initProfile();
-  }
 
   async signInClicked() {
     const res = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
