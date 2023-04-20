@@ -1,0 +1,2 @@
+<button *ngIf="auth.user | async" class="button" (click)="signOutClicked()">Sign Out</button>
+<button *ngIf="!(auth.user | async)" (click)="signInClicked()">Sign In with Google</button>

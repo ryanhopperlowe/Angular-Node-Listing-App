@@ -18,16 +18,4 @@ export class AppComponent {
 
   ngOnInit() {
     this.profileService.initProfile();
-  }
-
-  async signInClicked() {
-    const res = await this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-    if (res.user) {
-      this.profileService.initProfile();
-    }
-  }
-
-  signOutClicked() {
-    this.auth.signOut();
-  }
-}
+  }}
